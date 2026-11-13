@@ -34,3 +34,4 @@ public interface SlotRepository extends JpaRepository<Slot, Long> {
                                    @Param("startTime") java.time.LocalTime startTime,
                                    @Param("endTime") java.time.LocalTime endTime);
 }
+

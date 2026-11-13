@@ -44,3 +44,4 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     /** Check if patient already has a booked appointment in same slot */
     boolean existsByPatientIdAndSlotIdAndStatus(Long patientId, Long slotId, AppointmentStatus status);
 }
+
