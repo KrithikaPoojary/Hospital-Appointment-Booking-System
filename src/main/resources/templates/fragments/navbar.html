@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <i class="bi bi-hospital me-2 fs-4"></i> MediBook Hospital
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/doctors">Find Doctors</a>
+                </li>
+
+                <!-- Dynamic role links -->
+                <li class="nav-item d-none" id="roleNavPatient">
+                    <a class="nav-link text-white" href="/appointments">My Appointments</a>
+                </li>
+                <li class="nav-item d-none" id="roleNavDoctor">
+                    <a class="nav-link text-white" href="/doctor/slots">Manage Availability</a>
+                </li>
+                <li class="nav-item d-none" id="roleNavAdmin">
+                    <a class="nav-link text-white" href="/admin">Admin Dashboard</a>
+                </li>
+            </ul>
+
+            <!-- Guest navigation -->
+            <ul class="navbar-nav" id="guestNav">
+                <li class="nav-item">
+                    <a class="btn btn-outline-light me-2" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-light" href="/register">Sign Up</a>
+                </li>
+            </ul>
+
+            <!-- Authenticated user navigation -->
+            <ul class="navbar-nav d-none" id="userNav">
+                <li class="nav-item d-flex align-items-center me-3 text-white">
+                    <i class="bi bi-person-circle me-2 fs-5"></i>
+                    <span id="userDisplay" class="fw-bold"></span>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light btn-sm" id="logoutBtn" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</body>
+</html>
