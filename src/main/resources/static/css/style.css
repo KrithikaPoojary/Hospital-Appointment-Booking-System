@@ -1,0 +1,88 @@
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --secondary-color: #00a896;
+    --dark-color: #212529;
+    --light-bg: #f8f9fa;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #00a896 100%);
+    color: #ffffff;
+    padding: 60px 0;
+    border-radius: 0 0 24px 24px;
+}
+
+/* Cards */
+.card-custom {
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-custom:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Specialty Badge */
+.badge-specialty {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 6px 14px;
+}
+
+/* Slot button */
+.slot-btn {
+    border-radius: 8px;
+    margin: 4px;
+    font-weight: 500;
+}
+
+/* Status Badges */
+.status-BOOKED {
+    background-color: #198754;
+    color: #fff;
+}
+.status-CANCELLED {
+    background-color: #dc3545;
+    color: #fff;
+}
+.status-COMPLETED {
+    background-color: #0dcaf0;
+    color: #000;
+}
+.status-RESCHEDULED {
+    background-color: #ffc107;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
