@@ -5,6 +5,7 @@ import com.hospital.appointment.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -20,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * Spring Security configuration:
  * - Stateless session (JWT, no cookies)
- * - Public endpoints: auth, Swagger, static resources
+ * - Public endpoints: auth, doctor search & slot browsing, Swagger, web pages
  * - Role-based access on /api/admin/**, /api/doctor/**, /api/patient/**
  * - BCrypt password hashing
  */
@@ -43,6 +44,8 @@ public class SecurityConfig {
                 // Public endpoints
                 .requestMatchers(
                     "/api/auth/**",
+                    "/api/doctors/**",
+                    "/api/slots/**",
                     "/swagger-ui/**",
                     "/swagger-ui.html",
                     "/api-docs/**",
@@ -54,6 +57,9 @@ public class SecurityConfig {
                     "/login",
                     "/register",
                     "/doctors",
+                    "/appointments",
+                    "/doctor/slots",
+                    "/admin",
                     "/error"
                 ).permitAll()
                 // Role-restricted endpoints
@@ -89,4 +95,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
