@@ -1,0 +1,35 @@
+services:
+  # ---- Spring Boot Web Service ----
+  - type: web
+    name: hospital-appointment-app
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: hospital-postgres
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: hospital-postgres
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: hospital-postgres
+          property: password
+      - key: APP_JWT_SECRET
+        generateValue: true
+      - key: APP_JWT_EXPIRATION_MS
+        value: 86400000
+
+databases:
+  # ---- Managed PostgreSQL Database (Free Tier) ----
+  - name: hospital-postgres
+    plan: free
+    region: oregon
+    databaseName: hospital_db
+    user: hospital_user
